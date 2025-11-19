@@ -230,9 +230,38 @@ O cabo deve ficar mais "grosso" ou mudar de cor no ponto de conexão.
 ### **Problema 4: Versão do mod**
 Alguns modpacks/versões do AE2 precisam de **ME Capability Adapter** em vez de ME Interface.
 
-**Tente usar:**
-- ME Capability Adapter (adicional do AE2)
-- OU conecte direto no ME Controller
+**SOLUÇÃO - Tente uma destas opções:**
+
+#### **Opção 1: ME Capability Adapter (Recomendado para ATM10)**
+```
+[Computer]
+    |
+[Wired Modem]
+    |
+[Networking Cable] ──> [ME Capability Adapter] ──> [ME System]
+```
+O ME Capability Adapter é um bloco específico do AE2 Additions/Expansions.
+
+#### **Opção 2: Conectar direto no ME Controller**
+```
+[Computer]
+    |
+[Wired Modem]
+    |
+[Networking Cable] ──> [ME Controller] (clique no cabo aqui!)
+```
+
+#### **Opção 3: ME Pattern Provider**
+Algumas versões usam ME Pattern Provider:
+```
+[Computer]
+    |
+[Wired Modem]
+    |
+[Networking Cable] ──> [ME Pattern Provider] ──> [ME System]
+```
+
+**Depois de conectar, SEMPRE clique com botão direito no cabo!**
 
 ---
 
@@ -269,11 +298,17 @@ O sistema detecta automaticamente!
 
 ## 🔌 Resumo Rápido
 
+**Para ATM10 / AE2 mais recente:**
+
 1. Computer + Wired Modem
-2. Cabo do Computer até ME Interface
-3. Clicar com botão direito no cabo no ME Interface
-4. Instalar programa
-5. Pronto! ✅
+2. Networking Cable do Computer até:
+   - **ME Capability Adapter** (preferível) OU
+   - **ME Controller** (direto) OU
+   - **ME Pattern Provider**
+3. **Clicar com botão direito no cabo** onde toca o bloco do ME
+4. Testar: `lua` depois `peripheral.find("meBridge")`
+5. Se aparecer `table:`, instalar programa
+6. Pronto! ✅
 
 ---
 
