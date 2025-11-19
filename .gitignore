@@ -1,0 +1,9 @@
+# Arquivos de configuração locais
+me_config.txt
+
+# Arquivos temporários do ComputerCraft
+*.bak
+*.tmp
+
+# Logs
+*.log
