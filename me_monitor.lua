@@ -21,13 +21,38 @@ local colors_high = colors.green
 
 -- Função para conectar ao ME Bridge
 local function connectME()
+    -- Tentar encontrar meBridge primeiro
     meBridge = peripheral.find("meBridge")
+    
+    -- Se não encontrar, tentar ae2:controller
+    if not meBridge then
+        meBridge = peripheral.find("ae2:controller")
+    end
+    
+    -- Se ainda não encontrar, procurar qualquer periférico que tenha listItems
+    if not meBridge then
+        local peripherals = peripheral.getNames()
+        for _, name in ipairs(peripherals) do
+            local p = peripheral.wrap(name)
+            if p and p.listItems then
+                meBridge = p
+                break
+            end
+        end
+    end
+    
     if not meBridge then
         print("Erro: ME Bridge não encontrado!")
-        print("Conecte um Modem de qualquer lado do computador")
-        print("ao ME Interface ou ME Controller")
+        print("Conecte um Wired Modem ao ME Controller ou ME Interface")
+        print("")
+        print("Periféricos disponíveis:")
+        for _, name in ipairs(peripheral.getNames()) do
+            print("  - " .. name)
+        end
         return false
     end
+    
+    print("Conectado ao: " .. peripheral.getName(meBridge))
     return true
 end
 
