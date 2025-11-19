@@ -4,11 +4,11 @@
 local files = {
     {
         name = "me_monitor.lua",
-        url = "https://pastebin.com/raw/YOURCODE1" -- Substitua com seu pastebin
+        url = "https://raw.githubusercontent.com/Guiirs/CC-tweeks-ATM10/main/me_monitor.lua"
     },
     {
         name = "me_config_editor.lua",
-        url = "https://pastebin.com/raw/YOURCODE2" -- Substitua com seu pastebin
+        url = "https://raw.githubusercontent.com/Guiirs/CC-tweeks-ATM10/main/me_config_editor.lua"
     }
 }
 

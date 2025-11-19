@@ -32,12 +32,19 @@ Sistema completo de monitoramento para Applied Energistics 2 usando ComputerCraf
 
 ### 2. Instalar Arquivos
 
-#### Opção A: Download direto (se o server tiver HTTP habilitado)
+#### Opção A: Instalador Automático (Recomendado)
 
 ```lua
 -- No Computer, execute:
-wget https://raw.githubusercontent.com/seu-repo/me_monitor.lua me_monitor.lua
-wget https://raw.githubusercontent.com/seu-repo/me_config_editor.lua me_config_editor.lua
+wget run https://raw.githubusercontent.com/Guiirs/CC-tweeks-ATM10/main/installer.lua
+```
+
+#### Opção B: Download direto
+
+```lua
+-- No Computer, execute:
+wget https://raw.githubusercontent.com/Guiirs/CC-tweeks-ATM10/main/me_monitor.lua me_monitor.lua
+wget https://raw.githubusercontent.com/Guiirs/CC-tweeks-ATM10/main/me_config_editor.lua me_config_editor.lua
 ```
 
 #### Opção B: Copiar manualmente
