@@ -5,6 +5,7 @@
 -- Configurações
 local CONFIG_FILE = "me_config.txt"
 local UPDATE_INTERVAL = 2 -- segundos entre atualizações
+local MONITOR_SCALE = 1.0 -- Escala do texto no monitor (0.5 a 5.0)
 
 -- Variáveis globais
 local meBridge = nil
@@ -78,7 +79,8 @@ end
 local function connectMonitor()
     monitor = peripheral.find("monitor")
     if monitor then
-        monitor.setTextScale(0.5)
+        -- Para monitor 5x5, usar escala configurável
+        monitor.setTextScale(MONITOR_SCALE)
         return true
     end
     return false
