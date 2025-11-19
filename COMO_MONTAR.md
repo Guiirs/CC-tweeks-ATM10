@@ -4,14 +4,14 @@
 
 ```
 ✅ 1x Computer (ComputerCraft)
-✅ 1x Wired Modem (ComputerCraft)
+✅ 2x Wired Modem (ComputerCraft) - PRECISA DE 2!
 ✅ Networking Cables (ComputerCraft)
-✅ 1x ME Bridge Block (Applied Energistics 2) - IMPORTANTE!
+✅ 1x ME Interface (Applied Energistics 2)
+✅ Cabo do AE2 (Glass Cable ou similar)
 ✅ Seu sistema ME funcionando
 ```
 
-**IMPORTANTE:** O ME Controller NÃO aceita Networking Cable diretamente!
-Você precisa do bloco **ME Bridge** do AE2.
+**IMPORTANTE:** Você precisa de **2 Wired Modems** - um no Computer e outro no bloco do AE2!
 
 **Opcional:** Monitores para display externo
 
@@ -43,31 +43,31 @@ Coloque o Computer em qualquer lugar próximo ao seu sistema ME.
 
 ### **PASSO 3: Conectar ao ME System**
 
-**IMPORTANTE:** O Networking Cable NÃO conecta direto no ME Controller!
+**SOLUÇÃO CORRETA PARA ATM10:**
 
-#### **Solução: Use ME Bridge Block**
-
-Procure no JEI: `ME Bridge` (bloco do AE2)
+O Networking Cable NÃO se conecta diretamente em blocos do AE2!
+Você precisa usar **Wired Modem em AMBOS os lados**.
 
 **Montagem correta:**
 
 ```
-[Computer] 
-    |
-[Wired Modem]
-    |
-[Networking Cable] ──> [ME Bridge] ──> [Cabo ME] ──> [ME Controller/Sistema]
-                         ↑
-                    CLIQUE AQUI!
+[Computer]                           [ME Interface ou ME Bridge]
+    |                                          |
+[Wired Modem] ─── [Networking Cable] ─── [Wired Modem]
+                                              |
+                                         [Cabo AE2]
+                                              |
+                                        [ME Controller]
 ```
 
 **Passo a passo:**
 
-1. Coloque o bloco **ME Bridge** próximo ao seu sistema ME
-2. Conecte o ME Bridge ao seu sistema usando **cabo do AE2** (Glass Cable, etc)
-3. Use **Networking Cable** (ComputerCraft) do Wired Modem até o **ME Bridge**
-4. **Clique com botão direito** no Networking Cable onde ele toca o ME Bridge
-5. O cabo deve ficar conectado (muda de aparência)
+1. Coloque **ME Interface** (ou ME Bridge) conectado ao seu sistema ME com cabo do AE2
+2. Coloque um **Wired Modem** no Computer (clique com botão direito)
+3. Coloque outro **Wired Modem** no ME Interface (clique com botão direito)
+4. Use **Networking Cable** para conectar os dois Wired Modems
+5. **Clique com botão direito** em AMBOS os Wired Modems para ativá-los
+6. Os modems devem ficar com uma luz vermelha quando ativados
 
 ---
 
@@ -88,14 +88,18 @@ O cabo deve mudar de aparência (geralmente fica mais grosso/conectado).
           |
     [Cabo do AE2 - Glass Cable]
           |
-    [ME Bridge Block] <─── CLIQUE no Networking Cable aqui!
+    [ME Interface]
           |
+    [Wired Modem] ← Clique com botão direito para ativar!
+          ║
     [Networking Cable]
+          ║
+    [Wired Modem] ← Clique com botão direito para ativar!
           |
-    [Wired Modem]
-          |
-    [Computer] <─── Abra aqui e instale o programa
+    [Computer] ← Abra aqui e instale o programa
 ```
+
+**IMPORTANTE:** Os Wired Modems ficam com luz vermelha quando ativados!
 
 ---
 
