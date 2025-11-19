@@ -29,21 +29,20 @@ local function connectME()
         meBridge = peripheral.find("ae2:controller")
     end
     
-    -- Se ainda não encontrar, procurar qualquer periférico que tenha listItems
+    -- Se ainda não encontrar, procurar qualquer periférico AE2
     if not meBridge then
         local peripherals = peripheral.getNames()
         for _, name in ipairs(peripherals) do
-            local p = peripheral.wrap(name)
-            if p and p.listItems then
-                meBridge = p
+            if name:find("ae2:") then
+                meBridge = peripheral.wrap(name)
                 break
             end
         end
     end
     
     if not meBridge then
-        print("Erro: ME Bridge não encontrado!")
-        print("Conecte um Wired Modem ao ME Controller ou ME Interface")
+        print("Erro: ME System não encontrado!")
+        print("Conecte um Wired Modem ao ME Controller")
         print("")
         print("Periféricos disponíveis:")
         for _, name in ipairs(peripheral.getNames()) do
@@ -53,6 +52,25 @@ local function connectME()
     end
     
     print("Conectado ao: " .. peripheral.getName(meBridge))
+    
+    -- Testar métodos disponíveis
+    print("Testando métodos disponíveis...")
+    local methods = peripheral.getMethods(peripheral.getName(meBridge))
+    local hasMethod = false
+    for _, method in ipairs(methods) do
+        if method == "listItems" or method == "getAvailableItems" or method == "list" then
+            print("  Método encontrado: " .. method)
+            hasMethod = true
+        end
+    end
+    
+    if not hasMethod then
+        print("")
+        print("AVISO: Métodos de listagem não encontrados!")
+        print("O servidor pode não ter a integração AE2+CC completa.")
+        return false
+    end
+    
     return true
 end
 
@@ -98,10 +116,24 @@ end
 
 -- Função para obter quantidade de um item no sistema ME
 local function getItemQuantity(itemName)
-    local items = meBridge.listItems()
+    local success, items = pcall(function() 
+        return meBridge.listItems() 
+    end)
+    
+    if not success or not items then
+        -- Tentar método alternativo para AE2 direto
+        success, items = pcall(function()
+            return meBridge.getAvailableItems()
+        end)
+    end
+    
+    if not success or not items then
+        return 0
+    end
+    
     for _, item in pairs(items) do
         if item.name == itemName then
-            return item.amount or 0
+            return item.amount or item.count or 0
         end
     end
     return 0
