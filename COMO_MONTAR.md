@@ -243,13 +243,29 @@ Alguns modpacks/versões do AE2 precisam de **ME Capability Adapter** em vez de 
 O ME Capability Adapter é um bloco específico do AE2 Additions/Expansions.
 
 #### **Opção 2: Conectar direto no ME Controller**
+
+**Cabo necessário: Networking Cable (ComputerCraft)**
+- Cor: Cinza/Preto
+- NO JEI: pesquise "Networking Cable" 
+- É do mod **ComputerCraft**, NÃO do AE2!
+
+**Montagem:**
 ```
-[Computer]
+[Computer] 
     |
-[Wired Modem]
+[Wired Modem] (grudado no Computer)
     |
-[Networking Cable] ──> [ME Controller] (clique no cabo aqui!)
+[Networking Cable] ──> [ME Controller] 
+                        ↑
+                   CLIQUE AQUI com botão direito!
 ```
+
+**Passo a passo:**
+1. Coloque Wired Modem no Computer
+2. Pegue o Networking Cable (ComputerCraft)
+3. Conecte do Wired Modem até o ME Controller
+4. **Clique com botão direito** no cabo onde toca o Controller
+5. O cabo deve mudar de aparência
 
 #### **Opção 3: ME Pattern Provider**
 Algumas versões usam ME Pattern Provider:
