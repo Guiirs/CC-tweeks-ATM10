@@ -121,11 +121,31 @@ O cabo deve mudar de aparência (geralmente fica mais grosso/conectado).
 Erro: ME Bridge não encontrado!
 ```
 
-**Verifique:**
-- [ ] Wired Modem está no Computer?
-- [ ] Cabo conecta o Modem ao ME Interface/Controller?
-- [ ] Você clicou com botão direito no cabo no ME Interface?
-- [ ] O sistema ME está ligado (tem energia)?
+**CHECKLIST DE DIAGNÓSTICO:**
+
+#### 1️⃣ **Verificar Wired Modem no Computer**
+- [ ] O Wired Modem está GRUDADO no Computer? (deve aparecer visualmente)
+- [ ] É um **Wired Modem** (cinza) e NÃO Wireless Modem (vermelho)?
+
+#### 2️⃣ **Verificar Cabo de Rede**
+- [ ] Você está usando **Networking Cable** do ComputerCraft?
+- [ ] NÃO é cabo do AE2 (Glass Cable/Covered Cable)?
+- [ ] O cabo está conectando o Wired Modem até o ME Interface/Controller?
+
+#### 3️⃣ **MUITO IMPORTANTE - Ativar o Cabo no ME**
+- [ ] Você clicou com **botão direito** no cabo onde ele toca o ME Interface?
+- [ ] O cabo mudou de aparência (ficou mais grosso/conectado)?
+- [ ] Se não mudou, clique novamente!
+
+#### 4️⃣ **Verificar ME System**
+- [ ] O sistema ME está ligado? (tem energia)
+- [ ] O ME Interface/Controller está funcionando?
+- [ ] Teste: tente acessar o terminal ME normalmente
+
+#### 5️⃣ **Verificar no Computer**
+- [ ] Digite no Computer: `peripherals` ou `peripheral list`
+- [ ] Deve aparecer algo como: `meBridge_0` ou similar
+- [ ] Se não aparecer, a conexão não está ativa!
 
 ### ✅ **Se funcionar:**
 ```
@@ -136,6 +156,92 @@ Erro: ME Bridge não encontrado!
 Item                    Atual    Mínimo
 ----------------------------------------
 Iron Ingot             1.2K      1.0K   (verde)
+```
+
+---
+
+## 🔍 TESTE RÁPIDO - Verificar Conexão
+
+Antes de instalar o programa, teste se o ME Bridge foi criado:
+
+1. **Abra o Computer**
+2. **Digite:**
+   ```lua
+   lua
+   ```
+3. **Digite:**
+   ```lua
+   peripheral.find("meBridge")
+   ```
+
+### Resultados:
+
+✅ **Se aparecer algo como:**
+```
+table: 0x12345678
+```
+**SUCESSO!** O ME Bridge está conectado! Pode instalar o programa.
+
+❌ **Se aparecer:**
+```
+nil
+```
+**PROBLEMA!** O ME Bridge não foi criado. Siga o checklist acima.
+
+**Para sair do modo lua:** digite `exit()`
+
+---
+
+## 🛠️ Soluções Comuns
+
+### **Problema 1: Usando o cabo errado**
+❌ **ERRADO:** Cabo do AE2 (Glass Cable, Covered Cable, Smart Cable)
+✅ **CORRETO:** Networking Cable do ComputerCraft (cabo preto/cinza)
+
+**Como fazer:**
+```
+ComputerCraft > Blocks > Networking Cable
+```
+
+---
+
+### **Problema 2: Não ativou o cabo**
+Você PRECISA clicar com botão direito no ponto onde o Networking Cable toca o ME Interface!
+
+**Visual:**
+```
+[ME Interface] <── CLIQUE AQUI no cabo!
+    ║
+    ║ (Networking Cable)
+    ║
+[Wired Modem]
+```
+
+O cabo deve ficar mais "grosso" ou mudar de cor no ponto de conexão.
+
+---
+
+### **Problema 3: ME System não tem energia**
+- Verifique se seu ME Controller está aceso (com luzes)
+- Certifique-se que tem energia chegando no sistema
+
+---
+
+### **Problema 4: Versão do mod**
+Alguns modpacks/versões do AE2 precisam de **ME Capability Adapter** em vez de ME Interface.
+
+**Tente usar:**
+- ME Capability Adapter (adicional do AE2)
+- OU conecte direto no ME Controller
+
+---
+
+### **Problema 5: Distância do cabo**
+Networking Cable tem limite de distância (256 blocos padrão).
+
+Se estiver muito longe, use **Wired Modem em ambos os lados:**
+```
+[Computer com Wired Modem] ─ Cabo ─ [Wired Modem] ─ [ME Interface]
 ```
 
 ---
