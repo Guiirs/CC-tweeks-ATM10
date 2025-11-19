@@ -6,8 +6,12 @@
 ✅ 1x Computer (ComputerCraft)
 ✅ 1x Wired Modem (ComputerCraft)
 ✅ Networking Cables (ComputerCraft)
-✅ 1x ME Interface OU ME Controller (Applied Energistics 2)
+✅ 1x ME Bridge Block (Applied Energistics 2) - IMPORTANTE!
+✅ Seu sistema ME funcionando
 ```
+
+**IMPORTANTE:** O ME Controller NÃO aceita Networking Cable diretamente!
+Você precisa do bloco **ME Bridge** do AE2.
 
 **Opcional:** Monitores para display externo
 
@@ -39,36 +43,31 @@ Coloque o Computer em qualquer lugar próximo ao seu sistema ME.
 
 ### **PASSO 3: Conectar ao ME System**
 
-Você tem 2 opções:
+**IMPORTANTE:** O Networking Cable NÃO conecta direto no ME Controller!
 
-#### **Opção A - ME Interface (Mais Comum)**
+#### **Solução: Use ME Bridge Block**
 
-1. Pegue **Networking Cable** (cabo de rede do ComputerCraft)
-2. Conecte do **Wired Modem** (no Computer) até o **ME Interface**
-3. Clique com **botão direito** no cabo que está tocando o ME Interface
+Procure no JEI: `ME Bridge` (bloco do AE2)
 
-```
-[Computer] 
-    |
-[Wired Modem]
-    |
-[Networking Cable] ─────> [ME Interface]
-                                |
-                          [Seu sistema ME]
-```
-
-#### **Opção B - Direto no ME Controller**
-
-1. Conecte o cabo do Computer direto no **ME Controller**
-2. Clique com **botão direito** no cabo conectado ao Controller
+**Montagem correta:**
 
 ```
 [Computer] 
     |
 [Wired Modem]
     |
-[Networking Cable] ─────> [ME Controller]
+[Networking Cable] ──> [ME Bridge] ──> [Cabo ME] ──> [ME Controller/Sistema]
+                         ↑
+                    CLIQUE AQUI!
 ```
+
+**Passo a passo:**
+
+1. Coloque o bloco **ME Bridge** próximo ao seu sistema ME
+2. Conecte o ME Bridge ao seu sistema usando **cabo do AE2** (Glass Cable, etc)
+3. Use **Networking Cable** (ComputerCraft) do Wired Modem até o **ME Bridge**
+4. **Clique com botão direito** no Networking Cable onde ele toca o ME Bridge
+5. O cabo deve ficar conectado (muda de aparência)
 
 ---
 
@@ -87,7 +86,9 @@ O cabo deve mudar de aparência (geralmente fica mais grosso/conectado).
           |
     [ME Controller]
           |
-    [ME Interface] <─── Clique aqui no cabo!
+    [Cabo do AE2 - Glass Cable]
+          |
+    [ME Bridge Block] <─── CLIQUE no Networking Cable aqui!
           |
     [Networking Cable]
           |
